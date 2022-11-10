@@ -1,11 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang=""><script id="allow-copy_script">(function agent() {
+    let unlock = false
+    document.addEventListener('allow_copy', (event) => {
+      unlock = event.detail.unlock
+    })
 
-<h1>你好,湖北理工学院</h1>
-</body>
-</html>
+    const copyEvents = [
+      'copy',
+      'cut',
+      'contextmenu',
+      'selectstart',
+      'mousedown',
+      'mouseup',
+      'mousemove',
+      'keydown',
+      'keypress',
+      'keyup',
+    ]
+    const rejectOtherHandlers = (e) => {
+      if (unlock) {
+        e.stopPropagation()
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+      }
+    }
+    copyEvents.forEach((evt) => {
+      document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+        capture: true,
+      })
+    })
+  })()</script><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="./reset.css"><title>test</title><script defer="defer" src="/js/chunk-vendors.a69d7269.js"></script><script defer="defer" src="/js/app.8f736ba1.js"></script><link href="/css/app.5c7d7ddd.css" rel="stylesheet"><style>.aaa {
+    width: 300px;
+    height: 60px;
+    position: fixed;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    padding-left: 70px;
+    color: #cce7f8;
+    font-size: 1.8rem;
+    -webkit-animation: shining 0.5s alternate infinite;
+    animation: shining 0.5s alternate infinite;
+  }
+
+  @-webkit-keyframes shining {
+    from {
+      text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 30px lightblue, 0 0 40px skyblue, 0 0 50px skyblue, 0 0 60px skyblue;
+    }
+
+    to {
+      text-shadow: 0 0 5px lightblue, 0 0 10px lightblue, 0 0 15px lightblue, 0 0 20px skyblue, 0 0 25px skyblue, 0 0 30px skyblue;
+    }
+  }</style></head><body><div class="aaa">DJ每天都要开心呀！</div><script src="./js/three.min.js"></script><script src="./js/MeshSurfaceSampler.js"></script><script src="./js/TrackballControls.js"></script><script src="./js/simplex-noise.js"></script><script src="./js/OBJLoader.js"></script><script src="./js/gsap.min.js"></script><script src="./js/script.js"></script><canvas width="375" height="667" style="display: block; width: 375px; height: 667px; touch-action: none;"></canvas></body></html>
